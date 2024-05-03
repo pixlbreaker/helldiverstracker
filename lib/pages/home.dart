@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: Color.fromARGB(255, 28, 101, 185),
               ),
               child: Text('All Planets',
                   style: TextStyle(
