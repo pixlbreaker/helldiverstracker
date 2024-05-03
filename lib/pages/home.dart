@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:helldiverstracker/pages/helldiver_planets.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -75,10 +76,28 @@ class _HomePageState extends State<HomePage> {
               height: 40,
             ),
             _additionalInformation(),
-            // _popularSection(),
             const SizedBox(
               height: 40,
             ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+              ),
+              child: Text('All Planets',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  )),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HellDiverPlanets(),
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
@@ -226,98 +245,6 @@ class _HomePageState extends State<HomePage> {
             padding:
                 const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 20),
           ),
-        )
-      ],
-    );
-  }
-
-  Column _planetsSection1() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: Text(
-            'All Planets',
-            style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
-          ),
-        ),
-        const SizedBox(
-          height: 15,
-        ),
-        ListView.separated(
-          physics: const AlwaysScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          itemCount: planets.length,
-          shrinkWrap: true,
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 25,
-          ),
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          itemBuilder: (context, index) {
-            return Container(
-              height: 100,
-              width: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                    planets[index].imagePath,
-                    width: 65,
-                    height: 65,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        planets[index].n.toString(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                            fontSize: 16),
-                      ),
-                      Text(
-                        'Player Count: ' +
-                                planets[index].p.toString() +
-                                ' | Liberation: ' +
-                                planets[index].l!.round().toString() +
-                                "%" ??
-                            '0.0' + '%',
-                        style: const TextStyle(
-                            color: Color(0xff7B6F72),
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ],
-                  ),
-                  // GestureDetector(
-                  //   onTap: () {},
-                  //   child: SvgPicture.asset(
-                  //     'assets/icons/button.svg',
-                  //     width: 30,
-                  //     height: 30,
-                  //   ),
-                  // )
-                ],
-              ),
-              // decoration: BoxDecoration(
-              //     color: planets[index].boxIsSelected
-              //         ? Colors.white
-              //         : Colors.transparent,
-              //     borderRadius: BorderRadius.circular(16),
-              //     boxShadow: popularDiets[index].boxIsSelected
-              //         ? [
-              //             BoxShadow(
-              //                 color: const Color(0xff1D1617).withOpacity(0.07),
-              //                 offset: const Offset(0, 10),
-              //                 blurRadius: 40,
-              //                 spreadRadius: 0)
-              //           ]
-              //         : []),
-            );
-          },
         )
       ],
     );

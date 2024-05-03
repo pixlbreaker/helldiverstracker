@@ -77,7 +77,7 @@ class Mn {
       // Planet is Automaton
       boxColor = Color.fromARGB(255, 236, 113, 119);
       imagePath = 'assets/icons/automaton.png';
-    } else if (o == 4) {
+    } else {
       boxColor = Color.fromARGB(255, 125, 209, 230);
       imagePath = 'assets/icons/automaton.png';
     }
