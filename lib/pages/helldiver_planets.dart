@@ -50,11 +50,22 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
         child: ListView(
           children: [
             _planetsSection(),
+            const SizedBox(
+              height: 40,
+            ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 36, 90, 170),
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Go back!'),
+              child: Text('Go Back',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  )),
             ),
           ],
         ),
@@ -120,7 +131,7 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
                                       "%" ??
                                   '0.0' + '%',
                               style: const TextStyle(
-                                  color: Color.fromARGB(255, 255, 244, 247),
+                                  color: Color.fromARGB(255, 244, 250, 255),
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400),
                             ),

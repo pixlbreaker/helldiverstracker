@@ -80,25 +80,6 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 40,
             ),
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Color.fromARGB(255, 28, 101, 185),
-            //   ),
-            //   child: Text('All Planets',
-            //       style: TextStyle(
-            //         color: Colors.white,
-            //         fontSize: 16,
-            //         fontWeight: FontWeight.w600,
-            //       )),
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (context) => const HellDiverPlanets(),
-            //       ),
-            //     );
-            //   },
-            // )
           ],
         ),
       ),
@@ -114,7 +95,7 @@ class _HomePageState extends State<HomePage> {
           child: Text("${_data?.mo!.t.toString() ?? "No Order"}",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
               )),
         ),
@@ -260,7 +241,10 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'Top 5 Planets',
             style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         const SizedBox(
@@ -321,7 +305,7 @@ class _HomePageState extends State<HomePage> {
               )),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 40),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromARGB(255, 36, 90, 170),
@@ -355,7 +339,7 @@ class _HomePageState extends State<HomePage> {
           child: Text("Additional Information",
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
               )),
         ),

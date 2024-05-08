@@ -79,7 +79,7 @@ class Mn {
       imagePath = 'assets/icons/automaton.png';
     } else {
       boxColor = Color.fromARGB(255, 125, 209, 230);
-      imagePath = 'assets/icons/automaton.png';
+      imagePath = 'assets/icons/superearth.png';
     }
   }
 
