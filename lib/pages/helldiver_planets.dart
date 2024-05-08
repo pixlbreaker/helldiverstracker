@@ -26,6 +26,8 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
     // Helldivers Get Plantes from API
     final data = await _helldiverservice.getHelldiverData();
 
+    if (!mounted) return;
+
     // Sets the data for the state
     setState(() {
       totalPlayers = 0;

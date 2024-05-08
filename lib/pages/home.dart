@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     // Helldivers Get Plantes from API
     final data = await _helldiverservice.getHelldiverData();
 
+    if (!mounted) return;
     // Sets the data for the state
     setState(() {
       totalPlayers = 0;
@@ -71,33 +72,33 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 40,
             ),
-            _planetsSection(),
-            const SizedBox(
-              height: 40,
-            ),
+            // _planetsSection(),
+            // const SizedBox(
+            //   height: 40,
+            // ),
             _additionalInformation(),
             const SizedBox(
               height: 40,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 28, 101, 185),
-              ),
-              child: Text('All Planets',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  )),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HellDiverPlanets(),
-                  ),
-                );
-              },
-            )
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Color.fromARGB(255, 28, 101, 185),
+            //   ),
+            //   child: Text('All Planets',
+            //       style: TextStyle(
+            //         color: Colors.white,
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.w600,
+            //       )),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => const HellDiverPlanets(),
+            //       ),
+            //     );
+            //   },
+            // )
           ],
         ),
       ),
@@ -301,6 +302,41 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 14),
                     )
                   ],
+                ),
+              );
+            },
+          ),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Text(
+              "These are the top 5 planets, to view all the planets please click the button below",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+              )),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color.fromARGB(255, 36, 90, 170),
+            ),
+            child: Text('All Planets',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                )),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HellDiverPlanets(),
                 ),
               );
             },
