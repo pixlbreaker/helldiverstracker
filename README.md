@@ -15,6 +15,19 @@ This document outlines the creation of a mobile application to track planet info
 3.  Install any required dependencies:
     * You might need additional packages for data storage or user interface elements. Research and install them using `pub`.
 
+**Project Build**
+
+To build the project run the following commands:
+
+1. Clean Flutter
+    ```bash
+    flutter clean
+    ```
+2. Build the apk for release
+    ```bash
+    flutter build apk --release
+    ```
+
 **App Functionality**
 
 The app will focus on keeping track of various details related to the planets in Helldivers 2. Here's a breakdown of potential features:
