@@ -6,11 +6,11 @@ This document outlines the creation of a mobile application to track planet info
 
 1.  Create a new Flutter project using the Flutter CLI:
     ```bash
-    flutter create helldivers2_planets
+    flutter create helldiverstracker
     ```
 2.  Navigate to the project directory:
     ```bash
-    cd helldivers2_planets
+    cd helldiverstracker
     ```
 3.  Install any required dependencies:
     * You might need additional packages for data storage or user interface elements. Research and install them using `pub`.
