@@ -72,6 +72,7 @@ flutter:
   assets:
     - assets/
     - assets/icons/
+    - assets/images/
     # - assets/icons/Arrow - Left 2.svg
     # - assets/icons/dots.svg
     # - assets/icons/Search.svg

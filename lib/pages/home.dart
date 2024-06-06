@@ -61,6 +61,9 @@ class _HomePageState extends State<HomePage> {
         onRefresh: _pullRefresh,
         child: ListView(
           children: [
+            Hero(
+                tag: 'hero-rectangle',
+                child: Image.asset('assets/images/helldivers.jpeg')),
             const SizedBox(
               height: 40,
             ),
