@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
     _fetchPlanets();
     return Scaffold(
       appBar: appBar(),
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: RefreshIndicator(
         onRefresh: _pullRefresh,
         child: ListView(
@@ -379,7 +379,7 @@ class _HomePageState extends State<HomePage> {
         style: TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
       ),
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Theme.of(context).colorScheme.background,
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
@@ -407,7 +407,7 @@ class _HomePageState extends State<HomePage> {
             alignment: Alignment.center,
             width: 37,
             child: SvgPicture.asset(
-              'assets/icons/dots.svg',
+              'assets/icons/palette.svg',
               height: 5,
               width: 5,
             ),
