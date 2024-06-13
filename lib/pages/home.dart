@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/pages/helldiver_planets.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
+import 'package:helldiverstracker/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -97,7 +99,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 20),
           child: Text("${_data?.mo!.t.toString() ?? "No Order"}",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
               )),
@@ -107,7 +109,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
               "${_data?.mo!.d.toString() ?? "Continue Spreading Democracy"}",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
               )),
@@ -117,7 +119,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
               " • ${_data?.mo!.td.toString() ?? " • Continue Spreading Democracy"}",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
               )),
@@ -135,7 +137,10 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'All Planets',
             style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+              //color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         const SizedBox(
@@ -169,9 +174,10 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               planets[index].n.toString(),
                               style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                  fontSize: 16),
+                                fontWeight: FontWeight.w500,
+                                //color: Colors.white,
+                                fontSize: 16,
+                              ),
                             ),
                             Text('Player Count: ' + planets[index].p.toString(),
                                 style: const TextStyle(
@@ -244,7 +250,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'Top 5 Planets',
             style: TextStyle(
-              color: Colors.white,
+              //color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.w600,
             ),
@@ -285,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                       topPlanets[index].n.toString(),
                       style: const TextStyle(
                           fontWeight: FontWeight.w400,
-                          color: Colors.white,
+                          //color: Colors.white,
                           fontSize: 14),
                     )
                   ],
@@ -302,7 +308,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
               "These are the top 5 planets, to view all the planets please click the button below",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
               )),
@@ -315,7 +321,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Text('All Planets',
                 style: TextStyle(
-                  color: Colors.white,
+                  //color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
                 )),
@@ -341,7 +347,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 20),
           child: Text("Additional Information",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
               )),
@@ -351,7 +357,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
               "This is for all my brothers and sisters. This is for freedom, for democracy, for super earth!",
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
               )),
@@ -363,7 +369,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 20),
           child: Text("Total Current Players: " + totalPlayers.toString(),
               style: TextStyle(
-                color: Colors.white,
+                //color: Colors.white,
                 fontSize: 10,
                 fontWeight: FontWeight.w600,
               )),
@@ -377,7 +383,10 @@ class _HomePageState extends State<HomePage> {
       title: const Text(
         'Helldivers 2 Tracker',
         style: TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          //color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
       elevation: 0.0,
@@ -395,13 +404,16 @@ class _HomePageState extends State<HomePage> {
             width: 20,
           ),
           decoration: BoxDecoration(
-              color: const Color(0x000000),
+              //color: const Color(0x000000),
               borderRadius: BorderRadius.circular(10)),
         ),
       ),
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            // Toggles the Theme
+            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+          },
           child: Container(
             margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
@@ -412,7 +424,7 @@ class _HomePageState extends State<HomePage> {
               width: 5,
             ),
             decoration: BoxDecoration(
-                color: const Color(0x000000),
+                //color: const Color(0x000000),
                 borderRadius: BorderRadius.circular(10)),
           ),
         ),

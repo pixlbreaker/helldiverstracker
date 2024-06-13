@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
+import 'package:helldiverstracker/theme/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class HellDiverPlanets extends StatefulWidget {
   const HellDiverPlanets({super.key});
@@ -45,7 +47,7 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
     _fetchPlanets();
     return Scaffold(
       appBar: appBar(),
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: ListView(
           children: [
@@ -82,7 +84,10 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
           child: Text(
             'All Planets',
             style: TextStyle(
-                color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+              //color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
         const SizedBox(
@@ -117,12 +122,12 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
                               planets[index].n.toString(),
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white,
+                                  //color: Colors.white,
                                   fontSize: 16),
                             ),
                             Text('Player Count: ' + planets[index].p.toString(),
                                 style: const TextStyle(
-                                    color: Color.fromARGB(255, 248, 237, 240),
+                                    //color: Color.fromARGB(255, 248, 237, 240),
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400)),
                             Text(
@@ -131,7 +136,7 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
                                       "%" ??
                                   '0.0' + '%',
                               style: const TextStyle(
-                                  color: Color.fromARGB(255, 244, 250, 255),
+                                  //color: Color.fromARGB(255, 244, 250, 255),
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400),
                             ),
@@ -187,15 +192,17 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
       title: const Text(
         'Helldivers 2 Tracker',
         style: TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          //color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Theme.of(context).colorScheme.background,
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
         onTap: () {
-          Navigator.pop(context);
-          //_fetchPlanets();
+          _fetchPlanets();
         },
         child: Container(
           margin: const EdgeInsets.all(10),
@@ -206,24 +213,27 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
             width: 20,
           ),
           decoration: BoxDecoration(
-              color: const Color(0x000000),
+              //color: const Color(0x000000),
               borderRadius: BorderRadius.circular(10)),
         ),
       ),
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            // Toggles the Theme
+            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+          },
           child: Container(
             margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
-            width: 37,
+            //width: 37,
             child: SvgPicture.asset(
-              'assets/icons/dots.svg',
-              height: 5,
-              width: 5,
+              'assets/icons/palette.svg',
+              height: 20,
+              width: 20,
             ),
             decoration: BoxDecoration(
-                color: const Color(0x000000),
+                //color: const Color(0x000000),
                 borderRadius: BorderRadius.circular(10)),
           ),
         ),
