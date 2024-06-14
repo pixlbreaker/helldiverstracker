@@ -417,11 +417,11 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
-            width: 37,
+            //width: 37,
             child: SvgPicture.asset(
               'assets/icons/palette.svg',
-              height: 5,
-              width: 5,
+              height: 25,
+              width: 25,
             ),
             decoration: BoxDecoration(
                 //color: const Color(0x000000),
