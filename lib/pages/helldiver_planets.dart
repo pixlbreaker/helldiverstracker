@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
+import 'package:helldiverstracker/pages/helldiver_planet.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -102,74 +103,91 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
                 decoration: BoxDecoration(
                     color: planets[index].boxColor.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(20)),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Image.asset(
-                          planets[index].imagePath,
-                          width: 60,
-                          height: 60,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: Column(
+                child: TextButton(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              planets[index].n.toString(),
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  //color: Colors.white,
-                                  fontSize: 16),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Image.asset(
+                                planets[index].imagePath,
+                                width: 60,
+                                height: 60,
+                              ),
                             ),
-                            Text('Player Count: ' + planets[index].p.toString(),
-                                style: const TextStyle(
-                                    //color: Color.fromARGB(255, 248, 237, 240),
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400)),
-                            Text(
-                              'Liberation: ' +
-                                      planets[index].l!.round().toString() +
-                                      "%" ??
-                                  '0.0' + '%',
-                              style: const TextStyle(
-                                  //color: Color.fromARGB(255, 244, 250, 255),
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
-                      )
-                    ]),
-                    // Container(
-                    //   height: 45,
-                    //   width: 130,
-                    //   child: Center(
-                    //     child: Text(
-                    //       'View',
-                    //       style: TextStyle(
-                    //           color: diets[index].viewIsSelected
-                    //               ? Colors.white
-                    //               : const Color(0xffC58BF2),
-                    //           fontWeight: FontWeight.w600,
-                    //           fontSize: 14),
-                    //     ),
-                    //   ),
-                    //   decoration: BoxDecoration(
-                    //       gradient: LinearGradient(colors: [
-                    //         diets[index].viewIsSelected
-                    //             ? const Color(0xff9DCEFF)
-                    //             : Colors.transparent,
-                    //         diets[index].viewIsSelected
-                    //             ? const Color(0xff92A3FD)
-                    //             : Colors.transparent
-                    //       ]),
-                    //       borderRadius: BorderRadius.circular(50)),
-                    // )
-                  ],
+                            Padding(
+                              padding: const EdgeInsets.only(left: 40),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    planets[index].n.toString(),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        //color: Colors.white,
+                                        fontSize: 16),
+                                  ),
+                                  Text(
+                                      'Player Count: ' +
+                                          planets[index].p.toString(),
+                                      style: const TextStyle(
+                                          //color: Color.fromARGB(255, 248, 237, 240),
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(
+                                    'Liberation: ' +
+                                            planets[index]
+                                                .l!
+                                                .round()
+                                                .toString() +
+                                            "%" ??
+                                        '0.0' + '%',
+                                    style: const TextStyle(
+                                        //color: Color.fromARGB(255, 244, 250, 255),
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ]),
+                      // Container(
+                      //   height: 45,
+                      //   width: 130,
+                      //   child: Center(
+                      //     child: Text(
+                      //       'View',
+                      //       style: TextStyle(
+                      //           color: diets[index].viewIsSelected
+                      //               ? Colors.white
+                      //               : const Color(0xffC58BF2),
+                      //           fontWeight: FontWeight.w600,
+                      //           fontSize: 14),
+                      //     ),
+                      //   ),
+                      //   decoration: BoxDecoration(
+                      //       gradient: LinearGradient(colors: [
+                      //         diets[index].viewIsSelected
+                      //             ? const Color(0xff9DCEFF)
+                      //             : Colors.transparent,
+                      //         diets[index].viewIsSelected
+                      //             ? const Color(0xff92A3FD)
+                      //             : Colors.transparent
+                      //       ]),
+                      //       borderRadius: BorderRadius.circular(50)),
+                      // )
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HellDiverPlanet(),
+                      ),
+                    );
+                  },
                 ),
               );
             },
@@ -202,7 +220,7 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
       centerTitle: true,
       leading: GestureDetector(
         onTap: () {
-          _fetchPlanets();
+          Navigator.pop(context);
         },
         child: Container(
           margin: const EdgeInsets.all(10),
