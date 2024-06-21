@@ -9,8 +9,6 @@ import 'package:provider/provider.dart';
 class HellDiverPlanets extends StatefulWidget {
   const HellDiverPlanets({super.key});
 
-  //final List<Mn> planets = [];
-
   @override
   State<HellDiverPlanets> createState() => _HellDiverPlanetsState();
 }
@@ -153,38 +151,14 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
                               ),
                             )
                           ]),
-                      // Container(
-                      //   height: 45,
-                      //   width: 130,
-                      //   child: Center(
-                      //     child: Text(
-                      //       'View',
-                      //       style: TextStyle(
-                      //           color: diets[index].viewIsSelected
-                      //               ? Colors.white
-                      //               : const Color(0xffC58BF2),
-                      //           fontWeight: FontWeight.w600,
-                      //           fontSize: 14),
-                      //     ),
-                      //   ),
-                      //   decoration: BoxDecoration(
-                      //       gradient: LinearGradient(colors: [
-                      //         diets[index].viewIsSelected
-                      //             ? const Color(0xff9DCEFF)
-                      //             : Colors.transparent,
-                      //         diets[index].viewIsSelected
-                      //             ? const Color(0xff92A3FD)
-                      //             : Colors.transparent
-                      //       ]),
-                      //       borderRadius: BorderRadius.circular(50)),
-                      // )
                     ],
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HellDiverPlanet(),
+                        builder: (context) =>
+                            HellDiverPlanet(planet: planets[index]),
                       ),
                     );
                   },

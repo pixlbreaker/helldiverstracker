@@ -5,27 +5,30 @@ import 'package:helldiverstracker/service/helldiver_service.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class HellDiverPlanet extends StatefulWidget {
-  const HellDiverPlanet({super.key});
+class HellDiverPlanet extends StatelessWidget {
+  const HellDiverPlanet({super.key, required this.planet});
 
-  //final List<Mn> planets = [];
-
-  @override
-  State<HellDiverPlanet> createState() => _HellDiverPlanetState();
-}
-
-class _HellDiverPlanetState extends State<HellDiverPlanet> {
-  // HellDivers Planet Data
-  HellDiverPlanet planet = HellDiverPlanet();
+  // Planet Object
+  final Mn planet;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: appBar(),
-        backgroundColor: Theme.of(context).colorScheme.background);
+      appBar: appBar(context),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Text(planet.n.toString()),
+            Text(planet.c.toString()),
+          ],
+        ),
+      ),
+    );
   }
 
-  AppBar appBar() {
+  AppBar appBar(BuildContext context) {
     return AppBar(
       title: const Text(
         'Helldivers 2 Tracker',
