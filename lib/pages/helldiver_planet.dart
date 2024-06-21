@@ -9,7 +9,7 @@ class HellDiverPlanet extends StatelessWidget {
   const HellDiverPlanet({super.key, required this.planet});
 
   // Planet Object
-  final Mn planet;
+  final Planet planet;
 
   @override
   Widget build(BuildContext context) {

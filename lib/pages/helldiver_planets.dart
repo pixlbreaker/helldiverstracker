@@ -20,8 +20,8 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
   int totalPlayers = 0;
 
   // List of Planets
-  List<Mn> planets = [];
-  List<Mn> topPlanets = [];
+  List<Planet> planets = [];
+  List<Planet> topPlanets = [];
 
   _fetchPlanets() async {
     // Helldivers Get Plantes from API
@@ -33,7 +33,7 @@ class _HellDiverPlanetsState extends State<HellDiverPlanets> {
     setState(() {
       totalPlayers = 0;
       _data = data;
-      planets = _data?.mn as List<Mn>;
+      planets = _data?.mn as List<Planet>;
       topPlanets = planets.sublist(0, 5);
       planets.forEach((element) {
         totalPlayers += element.p!.toInt();

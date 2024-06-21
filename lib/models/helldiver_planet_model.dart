@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HellDiverData {
   int? lastUpdate;
-  List<Mn>? mn;
+  List<Planet>? mn;
   Mo? mo;
 
   HellDiverData({this.lastUpdate, this.mn, this.mo});
@@ -10,9 +10,9 @@ class HellDiverData {
   HellDiverData.fromJson(Map<String, dynamic> json) {
     lastUpdate = json['lastUpdate'];
     if (json['mn'] != null) {
-      mn = <Mn>[];
+      mn = <Planet>[];
       json['mn'].forEach((v) {
-        mn!.add(new Mn.fromJson(v));
+        mn!.add(new Planet.fromJson(v));
       });
     }
     mo = json['mo'] != null ? new Mo.fromJson(json['mo']) : null;
@@ -31,7 +31,7 @@ class HellDiverData {
   }
 }
 
-class Mn {
+class Planet {
   String? n;
   int? o;
   double? rps;
@@ -45,7 +45,7 @@ class Mn {
   Color boxColor = Color(0xffC58BF2);
   String imagePath = "";
 
-  Mn(
+  Planet(
       {this.n,
       this.o,
       this.rps,
@@ -57,7 +57,7 @@ class Mn {
       this.c,
       this.ct});
 
-  Mn.fromJson(Map<String, dynamic> json) {
+  Planet.fromJson(Map<String, dynamic> json) {
     n = json['n'];
     o = json['o'];
     rps = json['rps'].toDouble();
