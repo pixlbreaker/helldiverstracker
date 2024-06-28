@@ -32,6 +32,7 @@ class HellDiverData {
 }
 
 class Planet {
+  // Name
   String? n;
   int? o;
   double? rps;
@@ -42,7 +43,11 @@ class Planet {
   double? r;
   int? c;
   int? ct;
+
+  // Background Color for the Planet
   Color boxColor = Color(0xffC58BF2);
+
+  // Image Path
   String imagePath = "";
 
   Planet(

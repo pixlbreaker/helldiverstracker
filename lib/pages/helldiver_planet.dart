@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
@@ -13,17 +14,50 @@ class HellDiverPlanet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Pie Chart Values
+    double? liberation = planet.l?.toDouble();
+    double? nonliberation = 100.0 - liberation!;
+
     return Scaffold(
       appBar: appBar(context),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Text(planet.n.toString()),
-            Text(planet.c.toString()),
-          ],
-        ),
+      body: Column(
+        children: [
+          Hero(
+              tag: 'hero-rectangle',
+              child: Image.asset('assets/images/automatons.jpg')),
+          const SizedBox(height: 25),
+          Text("${planet.n.toString() ?? "No Name"}",
+              style: TextStyle(
+                //color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              )),
+          Text(planet.n.toString()),
+          Text(planet.c.toString()),
+          Text(planet.p.toString()),
+          const SizedBox(height: 25),
+
+          // Pie Chart
+          SizedBox(
+            width: 200,
+            height: 200,
+            child: PieChart(
+              PieChartData(
+                sections: [
+                  PieChartSectionData(
+                      value: liberation,
+                      color: Color.fromARGB(255, 125, 209, 230),
+                      radius: 100),
+                  PieChartSectionData(
+                      value: nonliberation,
+                      color: planet.boxColor,
+                      radius: 100),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
