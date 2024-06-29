@@ -49,6 +49,7 @@ class Planet {
 
   // Image Path
   String imagePath = "";
+  String heroImagePath = "";
 
   Planet(
       {this.n,
@@ -78,13 +79,16 @@ class Planet {
     if (o == 2) {
       boxColor = Color.fromARGB(255, 211, 182, 102);
       imagePath = 'assets/icons/terminid.png';
+      heroImagePath = 'assets/images/terminid.png';
     } else if (o == 3) {
       // Planet is Automaton
       boxColor = Color.fromARGB(255, 236, 113, 119);
       imagePath = 'assets/icons/automaton.png';
+      heroImagePath = 'assets/images/automatons.jpg';
     } else {
       boxColor = Color.fromARGB(255, 125, 209, 230);
       imagePath = 'assets/icons/superearth.png';
+      heroImagePath = 'assets/images/superearth.jpg';
     }
   }
 

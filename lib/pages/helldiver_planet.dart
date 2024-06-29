@@ -25,7 +25,7 @@ class HellDiverPlanet extends StatelessWidget {
         children: [
           Hero(
               tag: 'hero-rectangle',
-              child: Image.asset('assets/images/automatons.jpg')),
+              child: Image.asset(planet.heroImagePath)),
           const SizedBox(height: 25),
           Text("${planet.n.toString() ?? "No Name"}",
               style: TextStyle(
