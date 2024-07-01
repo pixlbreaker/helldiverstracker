@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
-import 'package:helldiverstracker/pages/helldiver_planet.dart';
+import 'package:helldiverstracker/pages/helldiver_planet_page.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
 import 'package:provider/provider.dart';

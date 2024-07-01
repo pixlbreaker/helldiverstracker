@@ -16,6 +16,8 @@ class HellDiverPlanet extends StatelessWidget {
   Widget build(BuildContext context) {
     // Pie Chart Values
     double? liberation = planet.l?.toDouble();
+    String? liberationString = liberation?.toStringAsFixed(2);
+    //liberation = liberationString?.toDouble();
     double? nonliberation = 100.0 - liberation!;
 
     return Scaffold(
