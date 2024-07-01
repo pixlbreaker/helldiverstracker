@@ -17,27 +17,37 @@ class HellDiverPlanet extends StatelessWidget {
     // Pie Chart Values
     double? liberation = planet.l?.toDouble();
     String? liberationString = liberation?.toStringAsFixed(2);
-    //liberation = liberationString?.toDouble();
+    liberation = double.parse(liberationString!);
     double? nonliberation = 100.0 - liberation!;
 
     return Scaffold(
       appBar: appBar(context),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Hero(
-              tag: 'hero-rectangle',
-              child: Image.asset(planet.heroImagePath)),
-          const SizedBox(height: 25),
-          Text("${planet.n.toString() ?? "No Name"}",
-              style: TextStyle(
-                //color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              )),
-          Text(planet.n.toString()),
-          Text(planet.c.toString()),
-          Text(planet.p.toString()),
+                  tag: 'hero-rectangle',
+                  child: Image.asset(planet.heroImagePath)),
+              const SizedBox(height: 25),
+          Column(
+            children: [
+              
+              Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: 
+                    Text(planet.n.toString(),
+                        style: TextStyle(
+                          //color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        )),
+                    ),
+              Text(planet.n.toString()),
+              Text(planet.c.toString()),
+              Text(planet.p.toString()),
+            ],
+          ),
           const SizedBox(height: 25),
 
           // Pie Chart
