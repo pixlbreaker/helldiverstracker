@@ -384,28 +384,23 @@ class _HomePageState extends State<HomePage> {
         'Helldivers 2 Tracker',
         style: TextStyle(
           //color: Colors.white,
-          fontSize: 20,
+          fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),
+      toolbarHeight: 100,
       backgroundColor: Theme.of(context).colorScheme.background,
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
         onTap: () {
-          _fetchPlanets();
+          Navigator.pop(context);
         },
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
-            height: 20,
-            width: 20,
-          ),
-          decoration: BoxDecoration(
-              //color: const Color(0x000000),
-              borderRadius: BorderRadius.circular(10)),
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back, size: 28),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       actions: [
@@ -414,18 +409,15 @@ class _HomePageState extends State<HomePage> {
             // Toggles the Theme
             Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
           },
-          child: Container(
-            margin: const EdgeInsets.all(10),
-            alignment: Alignment.center,
-            //width: 37,
-            child: SvgPicture.asset(
-              'assets/icons/palette.svg',
-              height: 25,
-              width: 25,
+          child: IconButton(
+            icon: const Icon(
+              Icons.light_mode,
+              size: 28,
             ),
-            decoration: BoxDecoration(
-                //color: const Color(0x000000),
-                borderRadius: BorderRadius.circular(10)),
+            onPressed: () {
+              // Toggles the Theme
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            },
           ),
         ),
       ],

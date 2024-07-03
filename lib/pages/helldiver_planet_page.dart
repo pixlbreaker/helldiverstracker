@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
-import 'package:helldiverstracker/service/helldiver_service.dart';
+import 'package:helldiverstracker/pages/testing.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -26,24 +26,19 @@ class HellDiverPlanet extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Hero(
-                  tag: 'hero-rectangle',
-                  child: Image.asset(planet.heroImagePath)),
-              const SizedBox(height: 25),
+          Hero(tag: 'hero-rectangle', child: Image.asset(planet.heroImagePath)),
+          const SizedBox(height: 25),
           Column(
             children: [
-              
               Padding(
                 padding: EdgeInsets.only(left: 20),
-                child: 
-                    Text(planet.n.toString(),
-                        style: TextStyle(
-                          //color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        )),
-                    ),
-              Text(planet.n.toString()),
+                child: Text(planet.n.toString(),
+                    style: TextStyle(
+                      //color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    )),
+              ),
               Text(planet.c.toString()),
               Text(planet.p.toString()),
             ],
@@ -68,7 +63,17 @@ class HellDiverPlanet extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProjectPage(folderName: 'This'),
+                  ),
+                );
+              },
+              child: Text(planet.n.toString()))
         ],
       ),
     );
@@ -80,10 +85,11 @@ class HellDiverPlanet extends StatelessWidget {
         'Helldivers 2 Tracker',
         style: TextStyle(
           //color: Colors.white,
-          fontSize: 20,
+          fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),
+      toolbarHeight: 100,
       backgroundColor: Theme.of(context).colorScheme.background,
       elevation: 0.0,
       centerTitle: true,
@@ -91,17 +97,11 @@ class HellDiverPlanet extends StatelessWidget {
         onTap: () {
           Navigator.pop(context);
         },
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          child: SvgPicture.asset(
-            'assets/icons/Arrow - Left 2.svg',
-            height: 20,
-            width: 20,
-          ),
-          decoration: BoxDecoration(
-              //color: const Color(0x000000),
-              borderRadius: BorderRadius.circular(10)),
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back, size: 28),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       actions: [
@@ -110,18 +110,15 @@ class HellDiverPlanet extends StatelessWidget {
             // Toggles the Theme
             Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
           },
-          child: Container(
-            margin: const EdgeInsets.all(10),
-            alignment: Alignment.center,
-            //width: 37,
-            child: SvgPicture.asset(
-              'assets/icons/palette.svg',
-              height: 20,
-              width: 20,
+          child: IconButton(
+            icon: const Icon(
+              Icons.light_mode,
+              size: 28,
             ),
-            decoration: BoxDecoration(
-                //color: const Color(0x000000),
-                borderRadius: BorderRadius.circular(10)),
+            onPressed: () {
+              // Toggles the Theme
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            },
           ),
         ),
       ],
