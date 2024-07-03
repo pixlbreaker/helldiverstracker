@@ -1,6 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
 import 'package:helldiverstracker/pages/testing.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
@@ -18,7 +17,7 @@ class HellDiverPlanet extends StatelessWidget {
     double? liberation = planet.l?.toDouble();
     String? liberationString = liberation?.toStringAsFixed(2);
     liberation = double.parse(liberationString!);
-    double? nonliberation = 100.0 - liberation!;
+    double? nonliberation = 100.0 - liberation;
 
     return Scaffold(
       appBar: appBar(context),

@@ -1,7 +1,6 @@
 import 'package:helldiverstracker/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
-import 'package:helldiverstracker/theme/theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {

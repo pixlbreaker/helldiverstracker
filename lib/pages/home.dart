@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:helldiverstracker/models/helldiver_planet_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:helldiverstracker/pages/helldiver_planets.dart';
 import 'package:helldiverstracker/service/helldiver_service.dart';
 import 'package:helldiverstracker/theme/theme_provider.dart';
@@ -186,9 +185,8 @@ class _HomePageState extends State<HomePage> {
                                     fontWeight: FontWeight.w400)),
                             Text(
                               'Liberation: ' +
-                                      planets[index].l!.round().toString() +
-                                      "%" ??
-                                  '0.0' + '%',
+                                  planets[index].l!.round().toString() +
+                                  "%",
                               style: const TextStyle(
                                   color: Color(0xff7B6F72),
                                   fontSize: 13,
