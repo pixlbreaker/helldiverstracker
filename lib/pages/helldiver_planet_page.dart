@@ -20,60 +20,94 @@ class HellDiverPlanet extends StatelessWidget {
     double? nonliberation = 100.0 - liberation;
 
     return Scaffold(
-      appBar: appBar(context),
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Hero(tag: 'hero-rectangle', child: Image.asset(planet.heroImagePath)),
-          const SizedBox(height: 25),
+        appBar: appBar(context),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: ListView(children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text(planet.n.toString(),
-                    style: TextStyle(
-                      //color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    )),
-              ),
-              Text(planet.c.toString()),
-              Text(planet.p.toString()),
-            ],
-          ),
-          const SizedBox(height: 25),
-
-          // Pie Chart
-          SizedBox(
-            width: 200,
-            height: 200,
-            child: PieChart(
-              PieChartData(
-                sections: [
-                  PieChartSectionData(
-                      value: liberation,
-                      color: Color.fromARGB(255, 125, 209, 230),
-                      radius: 100),
-                  PieChartSectionData(
-                      value: nonliberation,
-                      color: planet.boxColor,
-                      radius: 100),
+              Hero(
+                  tag: 'hero-rectangle',
+                  child: Image.asset(planet.heroImagePath)),
+              const SizedBox(height: 25),
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: Text(planet.n.toString(),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        )),
+                  ),
+                  // if(planet.o == 3) ?{
+                  //   Text("Meissa, a planet teeming with insect-like aliens known as the Cyborgs, poses a relentless threat to Helldivers with its extreme environments and relentless enemies. Despite its unforgiving nature, Meissa holds valuable resources, making it a strategic target for the planet's liberation."),
+                  // },
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: planet.o == 3
+                            ? Text(planet.n! +
+                                ", a planet teeming with insect-like aliens known as the Cyborgs, poses a relentless threat to Helldivers with its extreme environments and relentless enemies. Despite its unforgiving nature, Meissa holds valuable resources, making it a strategic target for the planet's liberation.")
+                            : Text(planet.n! +
+                                "Gatria is a hostile planet from Helldivers 2, plagued by an alien horde and riddled with treacherous terrain, making it a formidable challenge for any invading force. Despite its unforgiving nature, Meissa holds valuable resources, making it a strategic target for the planet's liberation."),
+                      )
+                    ],
+                  ),
+                  Text("Player Count: " + planet.p.toString(),
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      )),
                 ],
               ),
-            ),
+              const SizedBox(height: 25),
+              const Divider(),
+
+              // Pie Chart
+              pieChart(liberation, nonliberation),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const ProjectPage(folderName: 'This'),
+                      ),
+                    );
+                  },
+                  child: Text(planet.n.toString()))
+            ],
           ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProjectPage(folderName: 'This'),
-                  ),
-                );
-              },
-              child: Text(planet.n.toString()))
-        ],
+        ]));
+  }
+
+  Container pieChart(double liberation, double nonliberation) {
+    return Container(
+      alignment: Alignment.center,
+      child: SizedBox(
+        width: 200,
+        height: 200,
+        child: PieChart(
+          // Adds the PieChart Data
+          PieChartData(
+            sections: [
+              // Liberated
+              PieChartSectionData(
+                value: liberation,
+                color: Color.fromARGB(255, 125, 209, 230),
+                radius: 100,
+              ),
+              // Non-liberated
+              PieChartSectionData(
+                value: nonliberation,
+                color: planet.boxColor,
+                radius: 100,
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

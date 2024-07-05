@@ -97,9 +97,9 @@ class _ProjectPageState extends State<ProjectPage> {
           child: ListView(
             padding: const EdgeInsets.all(25),
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text(
                     "Files",
                     style: TextStyle(
